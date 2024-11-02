@@ -62,7 +62,7 @@ if ($selectStmt_ext->execute()) {
 $name_length = strlen($full_name);
 
 $font_size = 25;
-$font_size_NICKNAME = 40;
+$font_size_FRONT = 20;
 $font_size_x = 10;
 
 $font_size2 = 12;
@@ -72,46 +72,54 @@ $font_size_x2 = 9;
 if($name_length >= 35){
 	$font_size = 11;
 	$font_size_x = 10;
+    $font_size_FRONT = 13;
 
 	$font_size2 = 10;
 	$font_size_x2 = 8;
 }else if($name_length >= 33){
 	$font_size = 13;
 	$font_size_x = 10;
+    $font_size_FRONT = 15;
 
 	$font_size2 = 10;
 	$font_size_x2 = 8;
 }else if($name_length >= 30){
 	$font_size = 14;
 	$font_size_x = 11;
+    $font_size_FRONT = 16;
 
 	$font_size2 = 10;
 	$font_size_x2 = 9;
 }else if($name_length >= 27){
 	$font_size = 15;
 	$font_size_x = 10;
+    $font_size_FRONT = 17;
 
 	$font_size2 = 10;
 	$font_size_x2 = 9;
 }else if($name_length >= 24){
 	$font_size = 16;
 	$font_size_x = 10;
+    $font_size_FRONT = 18;
 
 	$font_size2 = 10;
 	$font_size_x2 = 9;
 }else if($name_length >= 21){
 	$font_size = 17;
 	$font_size_x = 10;
+    $font_size_FRONT = 19;
 
 	$font_size2 = 10;
 	$font_size_x2 = 9;
 }else if($name_length >= 18){
 	$font_size = 18;
 	$font_size_x = 10;
+    $font_size_FRONT = 20;
 
 	$font_size2 = 10;
 	$font_size_x2 = 9;
 }
+
 
 
 // Instanciation of inherited class
@@ -121,16 +129,17 @@ $pdf->addPage('L');
 
 $pdf->SetTextColor(0, 0, 0);
 $pdf->Image('library/assets/img/front.png', 10, 10,100);
-$pdf->Image('pax_images/'.$photo, 65, 18,35,0,'JPG');
-$pdf->SetY(63);
-$pdf->SetFont('Arial', 'B', $font_size_NICKNAME);
-$pdf->Cell(100, 0, $nickname, 0, 0, 'C');
-$pdf->Ln(10);
+// $pdf->Image('pax_images/'.$photo, 65, 18,35,0,'JPG');
+// After setting Y position for the front side text
+$pdf->SetY(48);
+$pdf->SetFont('Arial', 'B', $font_size_FRONT);
+$pdf->MultiCell(100, 7, $full_name, 0, 'C'); // Use MultiCell for full name
+$pdf->Ln(1); // Adjust line spacing if necessary
 $pdf->SetFont('Arial', 'B', $font_size_x);
-$pdf->Cell(100, 0, $position, 0, 2, 'C');
-$pdf->Ln(4.5);
-$pdf->SetFont('Arial', 'B', $font_size_x);
-$pdf->Cell(100, 0, $office, 0, 2, 'C');
+$pdf->MultiCell(100, 5, $position, 0, 'C'); // Position with minimal spacing
+$pdf->SetY(76); // Minimal spacing for office
+$pdf->MultiCell(100, 8, $office, 0, 'C'); // Office with minimal spacing
+
 
 $pdf->SetTextColor(0, 0, 0);
 $pdf->Image('library/assets/img/back.png', 111, 10,100);

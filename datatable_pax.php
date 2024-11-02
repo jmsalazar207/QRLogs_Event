@@ -15,7 +15,7 @@
 			<th>Full Name</th>
 			<th>Position</th>
 			<th>Office</th>
-			<th>Status</th>
+			<!-- <th>Status</th> -->
 		  </tr>
 		</thead>
 		<tbody>
@@ -39,23 +39,23 @@
 
         <tr>
             <td style='white-space: nowrap;'>
-				<button type="button" class="btn btn-success btnView" attr="<?php echo $row[0]; ?>"><i class="bi bi-eye"></i></button>
-				<button type="button" class="btn btn-secondary btnCamera" attr="<?php echo $row[0]; ?>" fname="<?php echo $row[1]; ?>" 
+				<button 
+				type="button" 
+				class="btn btn-success btnView" 
+				attr="<?php echo $row[0]; ?>">
+					<i class="bi bi-eye">
+
+					</i>
+				</button>
+				
+				<button 
+				type="button" 
+				class="btn btn-primary btnGenerateID" 
+				attr="<?php echo $row[0]; ?>" fname="<?php echo $row[1]; ?>"
 				<?php
-				
-					if($row[11] == ""){
-						echo "disabled";
-					}
-				
-				?>
-				><i class="bi bi-person-bounding-box"></i></button>
-				<button type="button" class="btn btn-primary btnGenerateID" attr="<?php echo $row[0]; ?>" fname="<?php echo $row[1]; ?>"
-				<?php
-				
-					if($row[10] == "COMING"){
-						echo "disabled";
-					}
-				
+					// if($row[10] == "COMING"){
+					// 	echo "disabled";
+					// }
 				?>
 				><i class="bi bi-person-badge"></i></button>
 			</td>
@@ -63,15 +63,15 @@
             <td><?php echo $row[1]; ?></td>
             <td><?php echo $row[2]; ?></td>
             <td><?php echo $row[3]; ?></td>
-            <td>
+            <!-- <td>
 				<?php 
-					if($row[10] == "COMING"){
-						echo '<span class="badge bg-info"><i class="bi bi-info-circle me-1"></i> '.$row[10].'</span>';
-					}else{
-						echo '<span class="badge bg-success"><i class="bi bi-check-circle me-1"></i> '.$row[10].'</span>';
-					}
+					// if($row[10] == "COMING"){
+					// 	echo '<span class="badge bg-info"><i class="bi bi-info-circle me-1"></i> '.$row[10].'</span>';
+					// }else{
+					// 	echo '<span class="badge bg-success"><i class="bi bi-check-circle me-1"></i> '.$row[10].'</span>';
+					// }
 				?>
-			</td>
+			</td> -->
         </tr>
 
         <?php
