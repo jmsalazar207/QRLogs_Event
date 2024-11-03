@@ -32,7 +32,7 @@ class PDF extends FPDF
     }
 }
 
- $sql = " SELECT * FROM tbl_participants";
+ $sql = "SELECT * FROM tbl_participants ";
 $selectStmt_ext = $conn->prepare($sql);
 // Instanciation of inherited class
 $pdf = new FPDF("L","mm","A4");
