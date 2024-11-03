@@ -47,7 +47,7 @@ if ($selectStmt_ext->execute()) {
         $position = $result[2];
         $office = $result[3];
         $photo = $result[7];
-        $nickname = $result[11];
+        $event_name = $result[11];
         $control_id = base64url_encode(encrypt($_GET['control_id'], $key));
         $control_id = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=".$control_id;
 
@@ -63,6 +63,7 @@ $name_length = strlen($full_name);
 
 $font_size = 25;
 $font_size_FRONT = 20;
+$font_size_title = 13;
 $font_size_x = 10;
 
 $font_size2 = 12;
@@ -130,6 +131,16 @@ $pdf->addPage('L');
 $pdf->SetTextColor(0, 0, 0);
 $pdf->Image('library/assets/img/front.png', 10, 10,100);
 // $pdf->Image('pax_images/'.$photo, 65, 18,35,0,'JPG');
+$pdf->SetY(30);
+$pdf->SetX(10);
+$pdf->SetFont('Arial', 'B', $font_size_title);
+$pdf->SetTextColor(0, 16, 118); // Set text color to blue
+
+// Display event title with specific font size and color
+$pdf->MultiCell(100, 4, strtoupper($event_name), 0, 'C');
+
+// Reset text color back to black for any following content
+$pdf->SetTextColor(0, 0, 0);
 // After setting Y position for the front side text
 $pdf->SetY(48);
 $pdf->SetFont('Arial', 'B', $font_size_FRONT);
@@ -158,5 +169,3 @@ $pdf->SetX(110);
 $pdf->Cell(100, 0, $office, 0, 2, 'C');
 
 $pdf->Output();
-
-?>

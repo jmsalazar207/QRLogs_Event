@@ -42,31 +42,31 @@
 	</div>
 
 	<div class="row mb-3">
-		<label class="col-sm-3 col-form-label">Full Name</label>
+		<label class="col-sm-3 col-form-label">Event<span style="color:red"> *</span></label>
 		<div class="col-sm-9">
-			<input type="text" class="form-control" id="info_full_name" value="<?= $full_name ?>" oninput="this.value = this.value.toUpperCase()">
-			<input type="hidden" class="form-control" id="info_control_id" value="<?= $control_id ?>">
+			<input type="text" class="form-control" id="info_nickname" value="<?= $nickname ?>" maxlength="100" oninput="this.value = this.value.toUpperCase()">
 		</div>
 	</div>
 
 	<div class="row mb-3">
-		<label class="col-sm-3 col-form-label">Nick Name</label>
+		<label class="col-sm-3 col-form-label">Full Name<span style="color:red"> *</span></label>
 		<div class="col-sm-9">
-			<input type="text" class="form-control" id="info_nickname" value="<?= $nickname ?>" maxlength="10" oninput="this.value = this.value.toUpperCase()">
+			<input type="text" class="form-control" id="info_full_name" required value="<?= $full_name ?>" oninput="this.value = this.value.toUpperCase()">
+			<input type="hidden" class="form-control" id="info_control_id" value="<?= $control_id ?>">
 		</div>
 	</div>
 	
 	<div class="row mb-3">
-		<label class="col-sm-3 col-form-label">Position</label>
+		<label class="col-sm-3 col-form-label">Position<span style="color:red"> *</span></label>
 		<div class="col-sm-9">
-			<input type="text" class="form-control" id="info_position" value="<?= $position ?>" oninput="this.value = this.value.toUpperCase()">
+			<input type="text" class="form-control" id="info_position" required value="<?= $position ?>" oninput="this.value = this.value.toUpperCase()">
 		</div>
 	</div>
 
 	<div class="row mb-3">
-		<label class="col-sm-3 col-form-label">Office</label>
+		<label class="col-sm-3 col-form-label">Office<span style="color:red"> *</span></label>
 		<div class="col-sm-9">
-			<input type="text" class="form-control" id="info_office" value="<?= $office ?>" oninput="this.value = this.value.toUpperCase()">
+			<input type="text" class="form-control" id="info_office" required value="<?= $office ?>" oninput="this.value = this.value.toUpperCase()">
 		</div>
 	</div>
 	

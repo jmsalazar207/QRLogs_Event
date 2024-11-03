@@ -189,7 +189,6 @@
 
 	function startScanner() {
 		scanner = new Instascan.Scanner({ video: document.getElementById('interactive') });
-
 		scanner.addListener('scan', function (content) {
 			$("#detected-qr-code").val(content);
 			console.log(content);
@@ -219,7 +218,6 @@
 	document.addEventListener('DOMContentLoaded', startScanner);
 
 	function doCapture(){
-
 		if(latitude == 0){
 			console.log("Browser doesn't support geolocation!");
 			alert("Can get your location. Please check the browser settings.");
@@ -250,7 +248,6 @@
 					if (this.readyState == 4 && this.status == 200) {
 
 						var data = JSON.parse(this.responseText);
-						
 						$("#spName").text(data[1]);
 						$("#spPosition").text(data[2]);
 						$("#spOffice").text(data[3]);

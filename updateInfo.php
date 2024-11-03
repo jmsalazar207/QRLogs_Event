@@ -13,7 +13,10 @@ try{
 		echo 2;
 		exit();
 	}
-	
+	if($_GET['nickname'] == ""){
+		echo 2;
+		exit();
+	}
 	if($_GET['position'] == ""){
 		echo 2;
 		exit();

@@ -20,24 +20,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Get Log Address
         // Google Maps API endpoint for Reverse Geocoding
-        $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng={$latitude},{$longitude}&key={$apiKey}";
+        // $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng={$latitude},{$longitude}&key={$apiKey}";
 
-        // Fetch the JSON response
-        $response = file_get_contents($url);
+        // // Fetch the JSON response
+        // $response = file_get_contents($url);
 
-        if ($response === false) {
-            die('Error fetching data');
-        }
+        // if ($response === false) {
+        //     die('Error fetching data');
+        // }
 
-        // Decode the JSON
-        $data = json_decode($response);
+        // // Decode the JSON
+        // $data = json_decode($response);
 
-        if ($data === null || $data->status !== 'OK') {
-            die('Invalid data or status');
-        }
+        // if ($data === null || $data->status !== 'OK') {
+        //     die('Invalid data or status');
+        // }
 
-        // Get the formatted address
-        $log_address = $data->results[0]->formatted_address;
+        // // Get the formatted address
+        $log_address = "Widus Hotel Clark"; //w$data->results[0]->formatted_address;
         // Captured Log Adress (End Here)
 		
 		// Get the incoming image data

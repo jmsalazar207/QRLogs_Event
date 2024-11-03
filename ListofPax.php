@@ -125,8 +125,8 @@
 			</div>
 		</div>
 	</div>
-	
-	<div class="modal fade" id="dialogaddViewRecords" tabindex="-1">
+	<!-- here -->
+	<div class="modal fade" id="dialogaddViewRecords" tabindex="-1"> 
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -267,48 +267,53 @@
 		
 		$("#addNewPax").click(function(){
 			$("#dialogaddViewRecords").modal('toggle');
+			
 			addRecordsForm();
 		});
 	
 		$("#btnSave").click(function(){
-		
-			var full_name		=	$("#info_full_name").val();
-			var position		=	$("#info_position").val();
-			var office			=	$("#info_office").val();
-			var sex				=	$("#info_sex").val();
-			var email_address	=	$("#info_email_address").val();
-			var contact_number	=	$("#info_contact_number").val();
-			var nickname		=	$("#info_nickname").val();
 			
-			$(".loaderdata").empty().html(imgloader);
+			var full_name		=	$("#add_info_full_name").val();
+			var position		=	$("#add_info_position").val();
+			var office			=	$("#add_info_office").val();
+			var sex				=	$("#add_info_sex").val();
+			var email_address	=	$("#add_info_email_address").val();
+			var contact_number	=	$("#add_info_contact_number").val();
+			var nickname		=	$("#add_info_nickname").val();
+			if(full_name ==''){
+				alert("Mulala ka ne tin neng * eme pa dinan laman");
+			}else if(position==''){
+				alert("Mulala ka ne tin neng * eme pa dinan laman");
+			}else if(office==''){
+				alert("Mulala ka ne tin neng * eme pa dinan laman");
+			}else{
+				$(".loaderdata").empty().html(imgloader);
 			
-			$.ajax({
-				url: "addInfo.php?full_name="+full_name+"&position="+position+"&office="+office+"&sex="+sex+"&email_address="+email_address+"&contact_number="+contact_number+"&nickname="+nickname,
-				success:function(data){
-					$("#adddialogViewRecords").modal('hide');
-					$("#infoName").text(full_name);
-					$(".loaderdata").empty().html();
-					
-					if(data == 1){
-						$("#InfoMessage").modal('toggle');
-						$("#InfoMessageBody").empty().html("<b>"+full_name+"</b> was successfully added.");
-						generateDataTable();
-						$("#divadddialogViewRecords").empty().html("");
-						full_name		=	"";
-						position		=	"";
-						office			=	"";
-						sex				=	"";
-						email_address	=	"";
-						contact_number	=	"";
-						nickname		=	"";
-					}else{
-						alert("There's a problem detected. Please try again.");
+				$.ajax({
+					url: "addInfo.php?full_name="+full_name+"&position="+position+"&office="+office+"&sex="+sex+"&email_address="+email_address+"&contact_number="+contact_number+"&nickname="+nickname,
+					success:function(data){
+						$("#adddialogViewRecords").modal('hide');
+						$("#infoName").text(full_name);
+						$(".loaderdata").empty().html();
+						
+						if(data == 1){
+							$("#InfoMessage").modal('toggle');
+							$("#InfoMessageBody").empty().html("<b>"+full_name+"</b> was successfully added.");
+							generateDataTable();
+							$("#divadddialogViewRecords").empty().html("");
+							full_name		=	"";
+							position		=	"";
+							office			=	"";
+							sex				=	"";
+							email_address	=	"";
+							contact_number	=	"";
+							nickname		=	"";
+						}else{
+							alert("There's a problem detected. Please try again.");
+						}
 					}
-					
-					
-				}
-			});
-			
+				});
+			}
 		});
 		
 		$("#btnCapturedPhoto").click(function(){

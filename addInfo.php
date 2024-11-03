@@ -8,12 +8,16 @@
 	$currentdatetime = date("Y-m-d H:i:s");
 
 try{
-	
+	// var_dump($_GET);
+	// die();
 	if($_GET['full_name'] == ""){
 		echo 2;
 		exit();
 	}
-	
+	if($_GET['nickname'] == ""){
+		echo 2;
+		exit();
+	}
 	if($_GET['position'] == ""){
 		echo 2;
 		exit();
